@@ -168,6 +168,12 @@ fn unknown_source() {
 
 #[test]
 #[should_panic]
+fn unknown_source_2() {
+    edmonds_karp_sparse(&[1, 2, 3], &0, &3, Vec::<((i32, i32), i32)>::new());
+}
+
+#[test]
+#[should_panic]
 fn unknown_sink() {
     edmonds_karp_dense(&[1, 2, 3], &1, &4, Vec::<((i32, i32), i32)>::new());
 }
@@ -226,4 +232,9 @@ fn mincut_wikipedia() {
         (mincut, cap),
         (vec![((1, 2), 9), ((4, 7), 10), ((6, 7), 10)], 29)
     )
+
+#[test]
+#[should_panic]
+fn unknown_sink2() {
+    edmonds_karp_sparse(&[1, 2, 3], &1, &4, Vec::<((i32, i32), i32)>::new());
 }
